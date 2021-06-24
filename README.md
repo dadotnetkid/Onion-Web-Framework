@@ -1,4 +1,3 @@
-
 ### Features
 - DI Container
 - FluentMigrator
@@ -6,8 +5,6 @@
 - Fluent Validator
 - EF Code First
 - MediatR
-
-
 # How To Use
 `Install-Package Web.Framework`
 
