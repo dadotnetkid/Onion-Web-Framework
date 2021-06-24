@@ -9,14 +9,18 @@
 `Install-Package Web.Framework`
 
 **Modify Startup.cs**
-	{
+```sh
+{
         public void Configuration(IAppBuilder app)
         {
             MiddlewareConfig.Configure(app);
         }
-    }
-	
+}
+
+
+```
 **Modify Global.asax**
+```sh
     public class MvcApplication : GlobalConfig
     {
         protected override void Application_Start()
@@ -39,3 +43,4 @@
             base.ConfigureService(serviceCollection);
         }
     }
+```
