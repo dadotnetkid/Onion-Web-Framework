@@ -8,7 +8,7 @@
 # How To Use
 `Install-Package Web.Framework`
 
-#####Modify Startup.cs
+**Modify Startup.cs**
 	{
         public void Configuration(IAppBuilder app)
         {
@@ -16,8 +16,8 @@
         }
     }
 	
-#####Modify Global.asax
-		  public class MvcApplication : GlobalConfig
+**Modify Global.asax**
+    public class MvcApplication : GlobalConfig
     {
         protected override void Application_Start()
         {
