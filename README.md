@@ -114,3 +114,14 @@ public class ModelMappingConfiguration: AutoMapperAbstraction
         }
     
 ```
+Register Domain to Entity Framework
+```sh
+ public class ModelDbEntityContext: TSDbModelBuilder
+    {
+        public override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Employees>().ToTable(nameof(Employees));
+            base.OnModelCreating(modelBuilder);
+        }
+    }
+```
