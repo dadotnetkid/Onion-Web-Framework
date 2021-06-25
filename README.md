@@ -86,3 +86,14 @@ public class EmployeeDbBuilder: TSEntityBuilder<Employees>
         }
     }
 ```
+**How to use Repository Pattern**
+```sh
+        just use IRepository<TEntity> in contructor just that
+        private readonly IRepository<Employees> _employeeRepository;
+        public EmployeeService(IRepository<Employees> employeeRepository)
+        {
+            _employeeRepository = employeeRepository;
+        }
+
+```
+
