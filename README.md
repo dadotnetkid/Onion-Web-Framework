@@ -1,3 +1,4 @@
+![NuGet package](https://img.shields.io/badge/nuget-your--package--here-yellow.svg)
 ### Features
 - DI Container
 - FluentMigrator
