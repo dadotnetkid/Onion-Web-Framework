@@ -31,16 +31,32 @@
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             base.Application_Start();
         }
-        protected override void ConfigureService(ServiceCollection serviceCollection)
+         protected override void ConfigureService(IServiceCollection services)
         {
-            serviceCollection.AddScoped<ApplicationUserManager>(sp => HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>());
-            serviceCollection.AddScoped<ApplicationSignInManager>(sp => HttpContext.Current.GetOwinContext().Get<ApplicationSignInManager>());
-            serviceCollection.AddTransient<ModelDb>();
-            serviceCollection.AddFluentMigrator();
-            serviceCollection.AddAutoMapperConfig();
-            serviceCollection.RegisterDependencies();
-            
-            base.ConfigureService(serviceCollection);
+            //register autofac Container
+            service.AutofacRegister();
+            base.ConfigureService(services);
+        }
+        //using LighInject Container
+        protected override void ConfigureContainer(ServiceContainer container)
+        {
+            container.RegisterControllers();
+            container.RegisterScoped<IEmployeeService, EmployeeService>();
+            base.ConfigureContainer(container);
+        }
+    }
+```
+
+How to Use Autofac DI container
+
+```sh
+public class DependencyRegistrar: DependencyRegistrarModule
+    {
+        protected override void Load(ContainerBuilder builder)
+        {
+            builder.RegisterType<EmployeeService>().AsImplementedInterfaces();
+            builder.RegisterType<EmployeeValidtor>().Keyed<IValidator>(typeof(EmployeeValidtor));
+            base.Load(builder);
         }
     }
 ```
