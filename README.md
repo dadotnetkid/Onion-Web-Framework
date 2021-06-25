@@ -62,7 +62,7 @@ public class DependencyRegistrar: DependencyRegistrarModule
 ```
 **How to use FluentMigrator**
 ```sh
-**Employee is a Entity which Inherit _BaseEntity_**
+**Employee is a Entity which Inherit BaseEntity**
 public class EmployeeDbBuilder: TSEntityBuilder<Employees>
     {
         public override void MapEntity(CreateTableExpressionBuilder table)
