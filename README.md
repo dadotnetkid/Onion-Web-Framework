@@ -103,8 +103,14 @@ public class ModelMappingConfiguration: AutoMapperAbstraction
     {
         public ModelMappingConfiguration()
         {
-            CreateMap<Catalog, CatalogModel>();
-            CreateMap<CatalogModel, Catalog>();
+            CreateMap<Employee, EmployeeModel>();
+            CreateMap<EmployeeModel, Employee   >();
         }
     }
+     public  IQueryable<EmployeeModel> GetAll()
+        {
+        //.ToModel<DTO>();
+            return _employeeRepository.GetAll().ToModel<EmployeeModel>();
+        }
+    
 ```
