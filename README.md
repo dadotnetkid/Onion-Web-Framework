@@ -47,7 +47,7 @@
     }
 ```
 
-How to Use Autofac DI container
+**How to Use Autofac DI container**
 
 ```sh
 public class DependencyRegistrar: DependencyRegistrarModule
@@ -57,6 +57,32 @@ public class DependencyRegistrar: DependencyRegistrarModule
             builder.RegisterType<EmployeeService>().AsImplementedInterfaces();
             builder.RegisterType<EmployeeValidtor>().Keyed<IValidator>(typeof(EmployeeValidtor));
             base.Load(builder);
+        }
+    }
+```
+How to use FluentMigrator
+```sh
+**Employee is a Entity which Inherit _BaseEntity_**
+public class EmployeeDbBuilder: TSEntityBuilder<Employees>
+    {
+        public override void MapEntity(CreateTableExpressionBuilder table)
+        {
+           
+        }
+    }
+    ///Here is create migration for the employee Table which create all the properties in the entity
+     [Migration(06242021144,"Create Employee table")]
+    public class EmployeeMigration:AutoReversingMigration
+    {
+        private readonly IMigrationManager _migrationManager;
+
+        public EmployeeMigration(IMigrationManager migrationManager)
+        {
+            _migrationManager = migrationManager;
+        }
+        public override void Up()
+        {
+            _migrationManager.BuildTable<Employees>(Create);
         }
     }
 ```
