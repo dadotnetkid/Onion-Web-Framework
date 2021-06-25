@@ -96,4 +96,15 @@ public class EmployeeDbBuilder: TSEntityBuilder<Employees>
         }
 
 ```
-
+**How to use AutoMapper**
+```sh
+ViewModel must Inherit BaseModel
+public class ModelMappingConfiguration: AutoMapperAbstraction
+    {
+        public ModelMappingConfiguration()
+        {
+            CreateMap<Catalog, CatalogModel>();
+            CreateMap<CatalogModel, Catalog>();
+        }
+    }
+```
