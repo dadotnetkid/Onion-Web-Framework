@@ -60,7 +60,7 @@ public class DependencyRegistrar: DependencyRegistrarModule
         }
     }
 ```
-How to use FluentMigrator
+**How to use FluentMigrator**
 ```sh
 **Employee is a Entity which Inherit _BaseEntity_**
 public class EmployeeDbBuilder: TSEntityBuilder<Employees>
